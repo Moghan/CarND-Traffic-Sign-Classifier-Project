@@ -14,15 +14,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
 [custom_images]: ./examples/custom_images.png "Custom images"
+[custom_images_gray]: ./examples/custom_images_gray.png "Custom images"
 [orig_images]: ./examples/orig_train_images.png "Original training images"
 [prep_images]: ./examples/prep_train_images.png "Preprocessed training images"
 [class_count]: ./examples/class_count.png "Number of examples of each class"
@@ -63,9 +56,11 @@ signs with fewer examples. Balancing throu augmentation may be a future improvem
 Preprocess of image data is done in the 5th code cell.
 
 * First - Grayscale 
+
 I read an [article](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) by Pierre Sermanet and Yann LeCun that said they got better results ignoring color information. So I made grayscaling a priority.
 
 * Second - Normalization
+
 Vincent Vanhoucke was in lecture very clear that normalization is a good idea. My (x-128)/128 made awful images and bad results when training. Decided for a x/255 formula instead, and values between 0 and 1.
 
 
@@ -78,7 +73,7 @@ An improvement  would be to increase the number of training examples by augmenta
 
 ####2. Model Architecture 
 
-The network architecture is biult in code cell 8.
+The network architecture is built in code cell 8.
 
 During lectures I got curious on inception, so I started with an architecture with two inception layers, two CNN and two fully connected layers. It took more than 2 minutes / epoch to train and made 97% on training.
 
@@ -128,11 +123,11 @@ The code for training the model is located in the tenth cell of the ipython note
 ####5. Solution design
 With the LeNet project as a starting ground, I went straight for the architecture, and training on different NN designs. Pretty much trial and error, much fun and rewarding. Wanted to try inception and looked at schematics of AlexNet and GoogleNet for inspiration. After a while I had a working network, but very slow to train and the resulting accuracy was not more than 97% while training. Then I read a couple of articles on Convnets.
 
-The ideas for my final solution comes from [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) and [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/pdf/1512.00567.pdf)
+The ideas for my final solution comes from [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) and [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/pdf/1512.00567.pdf).
 These made me ditch inception, go for double ConvLayer(3x3) instead of single ConvLayer(5x5), and use multi-scaling. I also decided for grayscaling.
 The increasing the number of filters was also part of the design. It goes from 16, 16, 32 to 64 in convnets, before flattened and fully connected layers take over.
 
-If iterated(trial and error) to find learning rate and epochs. I would like to implement a decreasing learning rate and a automated epoch stop, but time is running out.
+I iterated(trial and error) to find learning rate and epochs. I would like to implement a decreasing learning rate and a automated epoch stop, but time is running out.
 
 I am satisfied with the architecture for now. I think improvements is best found working with the data sets.
 
@@ -175,22 +170,22 @@ I show the probabilty for the first three images. (They all look pretty much the
 
 ![alt text][custom_images]
 First image:
-0.92 percent probabilty of :Right-of-way at the next intersection
-0.08 percent probabilty of :General caution
-0.00 percent probabilty of :Roundabout mandatory
-0.00 percent probabilty of :Wild animals crossing
-0.00 percent probabilty of :Dangerous curve to the right
+* 0.92 percent probabilty of :Right-of-way at the next intersection
+* 0.08 percent probabilty of :General caution
+* 0.00 percent probabilty of :Roundabout mandatory
+* 0.00 percent probabilty of :Wild animals crossing
+* 0.00 percent probabilty of :Dangerous curve to the right
 
 Second image:
-1.00 percent probabilty of :Road work
-0.00 percent probabilty of :Road narrows on the right
-0.00 percent probabilty of :Double curve
-0.00 percent probabilty of :Right-of-way at the next intersection
-0.00 percent probabilty of :Turn right ahead
+* 1.00 percent probabilty of :Road work
+* 0.00 percent probabilty of :Road narrows on the right
+* 0.00 percent probabilty of :Double curve
+* 0.00 percent probabilty of :Right-of-way at the next intersection
+* 0.00 percent probabilty of :Turn right ahead
 
 Third image:
-1.00 percent probabilty of :Keep right
-0.00 percent probabilty of :Speed limit (30km/h)
-0.00 percent probabilty of :Roundabout mandatory
-0.00 percent probabilty of :Slippery road
-0.00 percent probabilty of :Speed limit (20km/h)
+* 1.00 percent probabilty of :Keep right
+* 0.00 percent probabilty of :Speed limit (30km/h)
+* 0.00 percent probabilty of :Roundabout mandatory
+* 0.00 percent probabilty of :Slippery road
+* 0.00 percent probabilty of :Speed limit (20km/h)
