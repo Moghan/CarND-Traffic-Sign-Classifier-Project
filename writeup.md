@@ -14,10 +14,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[class5_images]: ./examples/class5.png "Class 5 images"
-[class10_images]: ./examples/class5.png "Class 10 images"
-[class15_images]: ./examples/class5.png "Class 15 images"
-[class20_images]: ./examples/class5.png "Class 20 images"
+[class5_images]: ./examples/class_5.png "Class 5 images"
+[class10_images]: ./examples/class_10.png "Class 10 images"
+[class15_images]: ./examples/class_15.png "Class 15 images"
+[class20_images]: ./examples/class_20.png "Class 20 images"
 [custom_images]: ./examples/custom_images.png "Custom images"
 [custom_images_gray]: ./examples/custom_images_gray.png "Custom images"
 [orig_images]: ./examples/orig_train_images.png "Original training images"
