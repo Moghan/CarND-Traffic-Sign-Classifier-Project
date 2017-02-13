@@ -74,6 +74,8 @@ Example of traffic sign images before and after preprocess.
 ![alt text][orig_images]
 ![alt text][prep_images]
 
+An improvement  would be to increase the number of training examples by augmentation. I would start with increasing the number 400%.
+
 ####2. Model Architecture 
 
 The network architecture is biult in code cell 8.
@@ -103,103 +105,92 @@ Started over and come to this:
 | Fully connected     		| Input 8192 , Output 120        				           ||
 | Fully connected	     	| Input 120 , Output 43        					            ||
 
-The training pipeline comes from the LeNet lab which means AdamOptimizer and softmax_cross_entropy_with_logits is used.
-Epochs was set to 400 and learning rate to 0.0001.
-Batch size was kept at(from LeNet-lab) 128.
+
 
  
 
 ####3. Training, validation and testing data.
 20 % of the training data was split for validation. This was done in code cell 7 using the function sklearn.model_selection.train_test_split. The train_test_split function, split randomly and renders the remaining train dataset shuffled.
 
+This led to a validation set of 7842 examples.
+
 The test set was provided in the traffic-signs-data file and consisted of 12630 examples.
 
 
 
-To cross validate my model, I randomly split the training data into a training set and validation set. I did this by ...
+####4. Model training
+The training pipeline comes from the LeNet lab which means AdamOptimizer and softmax_cross_entropy_with_logits is used.
+Epochs was set to 400 and learning rate to 0.0001.
+Batch size was kept at(from LeNet-lab) 128.
 
-My final training set had X number of images. My validation set and test set had Y and Z number of images.
+The code for training the model is located in the tenth cell of the ipython notebook. 
 
-The sixth code cell of the IPython notebook contains the code for augmenting the data set. I decided to generate additional data because ... To add more data to the the data set, I used the following techniques because ... 
+####5. Solution design
+With the LeNet project as a starting ground, I went straight for the architecture, and training on different NN designs. Pretty much trial and error, much fun and rewarding. Wanted to try inception and looked at schematics of AlexNet and GoogleNet for inspiration. After a while I had a working network, but very slow to train and the resulting accuracy was not more than 97% while training. Then I read a couple of articles on Convnets.
 
-Here is an example of an original image and an augmented image:
+The ideas for my final solution comes from [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) and [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/pdf/1512.00567.pdf)
+These made me ditch inception, go for double ConvLayer(3x3) instead of single ConvLayer(5x5), and use multi-scaling. I also decided for grayscaling.
+The increasing the number of filters was also part of the design. It goes from 16, 16, 32 to 64 in convnets, before flattened and fully connected layers take over.
 
-![alt text][image3]
+If iterated(trial and error) to find learning rate and epochs. I would like to implement a decreasing learning rate and a automated epoch stop, but time is running out.
 
-The difference between the original data set and the augmented data set is the following ... 
-
-
+I am satisfied with the architecture for now. I think improvements is best found working with the data sets.
 
 
-####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
-
-The code for training the model is located in the eigth cell of the ipython notebook. 
-
-To train the model, I used an ....
-
-####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
-
-The code for calculating the accuracy of the model is located in the ninth cell of the Ipython notebook.
+The code for calculating the accuracy of the model is located in the elevent cell of the Ipython notebook.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of ?. I never measured this accuracy.
+* validation set accuracy of 99.5%
+* test set accuracy of 95.6%
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
 
 ###Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+Here are the eleven German traffic signs that I found on the web:
 
-Here are five German traffic signs that I found on the web:
+![alt text][custom_images]
+and after preprocess
+![alt text][custom_images_gray]
+Compared to some training examples, the accuracy should be high.
+![alt text][orig_images]
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+I must confess that these images was normalized by default. Therefor they have only been converted to grayscale, and not passed the same preprocess pipeline as the others sets. 
 
-The first image might be difficult to classify because ...
+Prediction of custom images:
+100 % accuracy sounds good, but the pictures was clean and without noise. 
+The three lowest (winning) prediction probabilities was 92%, 94% and 99%. 
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
-
-The code for making predictions on my final model is located in the tenth cell of the Ipython notebook.
-
-Here are the results of the prediction:
-
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+I suppose this...compares favorably to the accuracy on the test set of 95.6 %
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
-
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
-
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+The code for making predictions on my final model is located in the 12th cell of the Ipython notebook.
 
 
-For the second image ... 
+
+####3. Softmax probabilities for custom images
+The code for making predictions on my final model is located in the 13th cell of the Ipython notebook.
+
+I show the probabilty for the first three images. (They all look pretty much the same.)
+
+![alt text][custom_images]
+First image:
+0.92 percent probabilty of :Right-of-way at the next intersection
+0.08 percent probabilty of :General caution
+0.00 percent probabilty of :Roundabout mandatory
+0.00 percent probabilty of :Wild animals crossing
+0.00 percent probabilty of :Dangerous curve to the right
+
+Second image:
+1.00 percent probabilty of :Road work
+0.00 percent probabilty of :Road narrows on the right
+0.00 percent probabilty of :Double curve
+0.00 percent probabilty of :Right-of-way at the next intersection
+0.00 percent probabilty of :Turn right ahead
+
+Third image:
+1.00 percent probabilty of :Keep right
+0.00 percent probabilty of :Speed limit (30km/h)
+0.00 percent probabilty of :Roundabout mandatory
+0.00 percent probabilty of :Slippery road
+0.00 percent probabilty of :Speed limit (20km/h)
