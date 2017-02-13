@@ -14,6 +14,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
+[class5_images]: ./examples/class5.png "Class 5 images"
+[class10_images]: ./examples/class5.png "Class 10 images"
+[class15_images]: ./examples/class5.png "Class 15 images"
+[class20_images]: ./examples/class5.png "Class 20 images"
 [custom_images]: ./examples/custom_images.png "Custom images"
 [custom_images_gray]: ./examples/custom_images_gray.png "Custom images"
 [orig_images]: ./examples/orig_train_images.png "Original training images"
@@ -49,6 +53,12 @@ As we can see in this chart there is big differences between number of examples 
 signs with fewer examples. Balancing throu augmentation may be a future improvement. On the other hand, maybe it is more important to get the most common signs right.
 
 ![alt text][class_count]
+
+Example of images from a some of the classes:
+![alt text][class5_images]
+![alt text][class10_images]
+![alt text][class15_images]
+![alt text][class20_images]
 
 ###Design and Test a Model Architecture
 
@@ -150,7 +160,7 @@ and after preprocess
 Compared to some training examples, the accuracy should be high.
 ![alt text][orig_images]
 
-I must confess that these images was normalized by default. Therefor they have only been converted to grayscale, and not passed the same preprocess pipeline as the others sets. 
+I must confess that these custom images was normalized by default. Therefor they have only been converted to grayscale, and therefor have not passed the same preprocess pipeline as the others sets. 
 
 Prediction of custom images:
 100 % accuracy sounds good, but the pictures was clean and without noise. 
