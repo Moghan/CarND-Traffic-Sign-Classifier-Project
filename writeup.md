@@ -85,7 +85,7 @@ An improvement  would be to increase the number of training examples by augmenta
 
 The network architecture is built in code cell 8.
 
-During lectures I got curious on inception, so I started with an architecture with two inception layers, two CNN and two fully connected layers. It took more than 2 minutes / epoch to train and made 97% on training.
+
 
 Than I read [the article](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) by Sermanet and LeCun, which have inspired a lot in this project.
 
@@ -131,16 +131,17 @@ Batch size was kept at(from LeNet-lab) 128.
 The code for training the model is located in the tenth cell of the ipython notebook. 
 
 ####5. Solution design
-With the LeNet project as a starting ground, I went straight for the architecture, and training on different NN designs. Pretty much trial and error, much fun and rewarding. Wanted to try inception and looked at schematics of AlexNet and GoogleNet for inspiration. After a while I had a working network, but very slow to train and the resulting accuracy was not more than 97% while training. Then I read a couple of articles on Convnets.
+With the LeNet project as a starting ground, I went straight for the architecture, and training on different NN designs.
+I wanted to try inception, and after looking at AlexNet and GoogLeNet for inspiration, I adventured with two inception layers, two convolution and two fully connected layers. It took more than 2 minutes / epoch to train and made 97% on training.
 
-The ideas for my final solution comes from [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) and [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/pdf/1512.00567.pdf).
-These made me ditch inception, go for double ConvLayer(3x3) instead of single ConvLayer(5x5), and use multi-scaling. I also decided for grayscaling.
-The increasing the number of filters was also part of the design. It goes from 16, 16, 32 to 64 in convnets, before flattened and fully connected layers take over.
+It was pretty much trial and error, but much fun and rewarding.
+
+Then I started reading some articles, which made me think over. The ideas for my final solution comes from [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) and [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/pdf/1512.00567.pdf).
+These made me ditch inception, go for double ConvLayer(3x3) instead of single ConvLayer(5x5), and use multi-scaling. I also decided for grayscaling, and to have an increasing number of filters in the convolutions. They go from 16, 16, 32 to 64, before flattened and fully connected layers take over.
 
 I iterated(trial and error) to find learning rate and epochs. I would like to implement a decreasing learning rate and a automated epoch stop, but time is running out.
 
 I am satisfied with the architecture for now. I think improvements is best found working with the data sets.
-
 
 The code for calculating the accuracy of the model is located in the elevent cell of the Ipython notebook.
 
@@ -162,7 +163,7 @@ Compared to some training examples, the accuracy should be high.
 
 I must confess that these custom images was normalized by default. Therefor they have only been converted to grayscale, and therefor have not passed the same preprocess pipeline as the others sets. 
 
-Prediction of custom images:
+**Prediction of custom images:**
 100 % accuracy sounds good, but the pictures was clean and without noise. 
 The three lowest (winning) prediction probabilities was 92%, 94% and 99%. 
 
