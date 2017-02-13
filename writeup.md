@@ -165,19 +165,17 @@ I must confess that these custom images was normalized by default. Therefor they
 
 **Prediction of custom images:**
 100 % accuracy sounds good, but the pictures was clean and without noise. 
-The three lowest (winning) prediction probabilities was 92%, 94% and 99%. 
 
 I suppose this...compares favorably to the accuracy on the test set of 95.6 %
 
-
-The code for making predictions on my final model is located in the 12th cell of the Ipython notebook.
-
-
+The code for making predictions on custom images is in the 12th cell of the Ipython notebook. The 13th show them.
 
 ####3. Softmax probabilities for custom images
-The code for making predictions on my final model is located in the 13th cell of the Ipython notebook.
+The 16th cell of the Ipython notebook calculates softmax. 
 
-I show the probabilty for the first three images. (They all look pretty much the same.)
+The result is very similar for all the images. The three lowest (winning) prediction probabilities was 92%, 94% and 99%. 
+
+Here are probabilities for the first three images. (They all look pretty much the same.)
 
 ![alt text][custom_images]
 First image:
