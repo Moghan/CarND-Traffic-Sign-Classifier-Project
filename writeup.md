@@ -97,11 +97,8 @@ An improvement  would be to increase the number of training examples by augmenta
 
 The network architecture is built in code cell 8.
 
+This [article](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) by Sermanet and LeCun, have inspired a lot.
 
-
-Than I read [the article](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) by Sermanet and LeCun, which have inspired a lot in this project.
-
-Started over and come to this:
 
 
 | Layer               		|     Description	        					|     Multi-scale points | 
@@ -160,7 +157,7 @@ The code for calculating the accuracy of the model is located in the elevent cel
 My final model results were:
 * training set accuracy of ?. I never measured this accuracy.
 * validation set accuracy of 99.5%
-* test set accuracy of 95.6%
+* test set accuracy of 95.9%
 
 
 ###Test a Model on New Images
