@@ -198,8 +198,10 @@ Mistaken signs was number : 1, 5 and 7
 * 0.00 percent probabilty of :Wild animals crossing
 * 0.00 percent probabilty of :Speed limit (80km/h)
 * 0.00 percent probabilty of :Bicycles crossing
+
 Correct class was: Right-of-way at the next intersection
 
+---
 2nd image:
 ![alt text][c_image2]
 * 1.00 percent probabilty of :Road work
@@ -208,6 +210,7 @@ Correct class was: Right-of-way at the next intersection
 * 0.00 percent probabilty of :Traffic signals
 * 0.00 percent probabilty of :Speed limit (80km/h)
 
+---
 3rd image:
 ![alt text][c_image3]
 * 1.00 percent probabilty of :Keep right
@@ -216,6 +219,7 @@ Correct class was: Right-of-way at the next intersection
 * 0.00 percent probabilty of :Speed limit (20km/h)
 * 0.00 percent probabilty of :Double curve
 
+---
 4th image:
 ![alt text][c_image4]
 * 1.00 percent probabilty of :Bumpy road
@@ -224,6 +228,7 @@ Correct class was: Right-of-way at the next intersection
 * 0.00 percent probabilty of :Bicycles crossing
 * 0.00 percent probabilty of :Speed limit (20km/h)
 
+---
 5th image:
 ![alt text][c_image5]
 * 1.00 percent probabilty of :No entry
@@ -231,8 +236,10 @@ Correct class was: Right-of-way at the next intersection
 * 0.00 percent probabilty of :Stop
 * 0.00 percent probabilty of :Speed limit (70km/h)
 * 0.00 percent probabilty of :Priority road
+
 Correct class was: No passing
 
+---
 6th image:
 ![alt text][c_image6]
 * 1.00 percent probabilty of :General caution
@@ -241,6 +248,7 @@ Correct class was: No passing
 * 0.00 percent probabilty of :Traffic signals
 * 0.00 percent probabilty of :Speed limit (30km/h)
 
+---
 7th image:
 ![alt text][c_image7]
 * 0.92 percent probabilty of :No vehicles
@@ -248,8 +256,10 @@ Correct class was: No passing
 * 0.00 percent probabilty of :No passing
 * 0.00 percent probabilty of :End of all speed and passing limits
 * 0.00 percent probabilty of :General caution
+
 Correct class was: End of all speed and passing limits
 
+---
 8th image:
 ![alt text][c_image8]
 * 1.00 percent probabilty of :Yield
@@ -258,6 +268,7 @@ Correct class was: End of all speed and passing limits
 * 0.00 percent probabilty of :Right-of-way at the next intersection
 * 0.00 percent probabilty of :Priority road
 
+---
 9th image:
 ![alt text][c_image9]
 * 1.00 percent probabilty of :Roundabout mandatory
@@ -266,6 +277,7 @@ Correct class was: End of all speed and passing limits
 * 0.00 percent probabilty of :Vehicles over 3.5 metric tons prohibited
 * 0.00 percent probabilty of :Speed limit (30km/h)
 
+---
 10th image:
 ![alt text][c_image10]
 * 1.00 percent probabilty of :Speed limit (50km/h)
@@ -274,6 +286,7 @@ Correct class was: End of all speed and passing limits
 * 0.00 percent probabilty of :Roundabout mandatory
 * 0.00 percent probabilty of :Speed limit (20km/h)
 
+---
 11th image:
 ![alt text][c_image11]
 * 1.00 percent probabilty of :Speed limit (30km/h)
