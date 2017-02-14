@@ -95,7 +95,7 @@ An improvement  would be to increase the number of training examples by augmenta
 
 ####2. Model Architecture 
 
-The network architecture is built in code cell 8.
+The network architecture is built in code cell 9.
 
 This [article](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) by Sermanet and LeCun, have inspired a lot.
 
