@@ -137,7 +137,7 @@ The training pipeline comes from the LeNet lab which means AdamOptimizer and sof
 Epochs was set to 400 and learning rate to 0.0001.
 Batch size was kept at(from LeNet-lab) 128.
 
-The code for training the model is located in the tenth cell of the ipython notebook. 
+The code for training the model is located in the 10th and 11th cells of the ipython notebook. 
 
 ####5. Solution design
 With the LeNet project as a starting ground, I went straight for the architecture, and training on different NN designs.
@@ -152,7 +152,7 @@ I iterated(trial and error) to find learning rate and epochs. I would like to im
 
 I am satisfied with the architecture for now. I think improvements is best found working with the data sets.
 
-The code for calculating the accuracy of the model is located in the elevent cell of the Ipython notebook.
+The code for calculating the accuracy of the model is located in the 12th cell of the Ipython notebook.
 
 My final model results were:
 * training set accuracy of ?. I never measured this accuracy.
