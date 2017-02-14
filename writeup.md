@@ -14,6 +14,18 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
+[c_image1]: ./images/1.png "Image 1"
+[c_image2]: ./images/2.png "Image 2"
+[c_image3]: ./images/3.png "Image 3"
+[c_image4]: ./images/4.png "Image 4"
+[c_image5]: ./images/5.png "Image 5"
+[c_image6]: ./images/6.png "Image 6"
+[c_image7]: ./images/7.png "Image 7"
+[c_image8]: ./images/8.png "Image 8"
+[c_image9]: ./images/9.png "Image 9"
+[c_image10]: ./images/10.png "Image 10"
+[c_image11]: ./images/11.png "Image 11"
+
 [class5_images]: ./examples/class_5.png "Class 5 images"
 [class10_images]: ./examples/class_10.png "Class 10 images"
 [class15_images]: ./examples/class_15.png "Class 15 images"
@@ -164,37 +176,112 @@ Compared to some training examples, the accuracy should be high.
 I must confess that these custom images was normalized by default. Therefor they have only been converted to grayscale, and therefor have not passed the same preprocess pipeline as the others sets. 
 
 **Prediction of custom images:**
-100 % accuracy sounds good, but the pictures was clean and without noise. 
+I did a last run of the Ipython notebook to get a good looking html file. I had some comments over the predictions of the custom images based on running the code using an earlier trained state of the CNN. The old state was done without preprocesseing the traffic-signs-data examples and gave a 100% correct predictions on the custom images. "100 % accuracy sounds good, but the pictures was clean and without noise." I´d like to examine this and perhaps their is a good chance of making only correct predictions again. However, I leave it be for now. 
 
-I suppose this...compares favorably to the accuracy on the test set of 95.6 %
+Of my 11 custom images 8 is predicted correctly. Prediction accuracy equals 72.7 %.
+This seems low compared to the accuracy on the test set of 95.6 %, and with the good quality of the custom images I was expacting 100 %.
 
-The code for making predictions on custom images is in the 12th cell of the Ipython notebook. The 13th show them.
+The code for making predictions on custom images is in the 14th cell of the Ipython notebook. The 15th show them.
 
 ####3. Softmax probabilities for custom images
-The 16th cell of the Ipython notebook calculates softmax. 
+The 17th cell of the Ipython notebook calculates softmax. 
 
-The result is very similar for all the images. The three lowest (winning) prediction probabilities was 92%, 94% and 99%. 
+The result is very similar for all the images, meaning all, but one(92%), predictions have very high level of certainty. Unfortently, three of the predictions are wrong.
 
-Here are probabilities for the first three images. (They all look pretty much the same.)
+Here are probabilities for the images.
+
+Mistaken signs was number : 1, 5 and 7
 
 ![alt text][custom_images]
-First image:
-* 0.92 percent probabilty of :Right-of-way at the next intersection
-* 0.08 percent probabilty of :General caution
-* 0.00 percent probabilty of :Roundabout mandatory
-* 0.00 percent probabilty of :Wild animals crossing
-* 0.00 percent probabilty of :Dangerous curve to the right
 
-Second image:
+1th image:
+![alt text][c_image1]
+* 1.00 percent probabilty of :General caution
+* 0.00 percent probabilty of :Right-of-way at the next intersection
+* 0.00 percent probabilty of :Wild animals crossing
+* 0.00 percent probabilty of :Speed limit (80km/h)
+* 0.00 percent probabilty of :Bicycles crossing
+Correct class was: Right-of-way at the next intersection
+
+2nd image:
+![alt text][c_image2]
 * 1.00 percent probabilty of :Road work
+* 0.00 percent probabilty of :Double curve
+* 0.00 percent probabilty of :Bicycles crossing
+* 0.00 percent probabilty of :Traffic signals
+* 0.00 percent probabilty of :Speed limit (80km/h)
+
+3rd image:
+![alt text][c_image3]
+* 1.00 percent probabilty of :Keep right
+* 0.00 percent probabilty of :Speed limit (50km/h)
+* 0.00 percent probabilty of :Speed limit (30km/h)
+* 0.00 percent probabilty of :Speed limit (20km/h)
+* 0.00 percent probabilty of :Double curve
+
+4th image:
+![alt text][c_image4]
+* 1.00 percent probabilty of :Bumpy road
+* 0.00 percent probabilty of :Road work
 * 0.00 percent probabilty of :Road narrows on the right
+* 0.00 percent probabilty of :Bicycles crossing
+* 0.00 percent probabilty of :Speed limit (20km/h)
+
+5th image:
+![alt text][c_image5]
+* 1.00 percent probabilty of :No entry
+* 0.00 percent probabilty of :No passing
+* 0.00 percent probabilty of :Stop
+* 0.00 percent probabilty of :Speed limit (70km/h)
+* 0.00 percent probabilty of :Priority road
+Correct class was: No passing
+
+6th image:
+![alt text][c_image6]
+* 1.00 percent probabilty of :General caution
+* 0.00 percent probabilty of :Bicycles crossing
+* 0.00 percent probabilty of :Priority road
+* 0.00 percent probabilty of :Traffic signals
+* 0.00 percent probabilty of :Speed limit (30km/h)
+
+7th image:
+![alt text][c_image7]
+* 0.92 percent probabilty of :No vehicles
+* 0.08 percent probabilty of :Priority road
+* 0.00 percent probabilty of :No passing
+* 0.00 percent probabilty of :End of all speed and passing limits
+* 0.00 percent probabilty of :General caution
+Correct class was: End of all speed and passing limits
+
+8th image:
+![alt text][c_image8]
+* 1.00 percent probabilty of :Yield
+* 0.00 percent probabilty of :Speed limit (50km/h)
 * 0.00 percent probabilty of :Double curve
 * 0.00 percent probabilty of :Right-of-way at the next intersection
-* 0.00 percent probabilty of :Turn right ahead
+* 0.00 percent probabilty of :Priority road
 
-Third image:
-* 1.00 percent probabilty of :Keep right
+9th image:
+![alt text][c_image9]
+* 1.00 percent probabilty of :Roundabout mandatory
+* 0.00 percent probabilty of :Right-of-way at the next intersection
+* 0.00 percent probabilty of :Priority road
+* 0.00 percent probabilty of :Vehicles over 3.5 metric tons prohibited
 * 0.00 percent probabilty of :Speed limit (30km/h)
+
+10th image:
+![alt text][c_image10]
+* 1.00 percent probabilty of :Speed limit (50km/h)
+* 0.00 percent probabilty of :Speed limit (30km/h)
+* 0.00 percent probabilty of :Speed limit (80km/h)
 * 0.00 percent probabilty of :Roundabout mandatory
-* 0.00 percent probabilty of :Slippery road
 * 0.00 percent probabilty of :Speed limit (20km/h)
+
+11th image:
+![alt text][c_image11]
+* 1.00 percent probabilty of :Speed limit (30km/h)
+* 0.00 percent probabilty of :End of speed limit (80km/h)
+* 0.00 percent probabilty of :Speed limit (50km/h)
+* 0.00 percent probabilty of :Speed limit (80km/h)
+* 0.00 percent probabilty of :Speed limit (20km/h)
+
